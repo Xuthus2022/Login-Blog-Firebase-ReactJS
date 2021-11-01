@@ -6,7 +6,7 @@ export default function SignUp() {
 			email: '',
 			password: '',
 			firstName: '',
-			lastNAme: '',
+			lastName: '',
 			phoneNumber: '',
 		}
 	);
@@ -33,10 +33,10 @@ export default function SignUp() {
 					<label htmlFor="lastName">Last Name</label>
 					<input type="text" id="lastName" onChange={handleChange} required/>
 				</div>
-				<div className="input-field"> 
+				{/* <div className=""> 
 					<label htmlFor="phoneNumber">Phone Number</label>
-					<input type="tel" id="phoneNumber" pattern="[0-9]{11,14}" placeholder="02245678901" onChange={handleChange} required/>
-				</div>
+					<input type="tel" id="phoneNumber" pattern="[0-9]{11,14}" placeholder="Must be between 11-14 characters" onChange={handleChange} required/>
+				</div> */}
 				<div className="input-field">
 					<label htmlFor="email">Email</label>
 					<input type="email" id="email" onChange={handleChange} required/>
