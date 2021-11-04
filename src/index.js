@@ -8,8 +8,20 @@ import rootReducer from './store/reducers/rootReducer';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import { applyMiddleware } from 'redux';
+import { reduxFirestore, getFirestore } from 'redux-firestore';
+import { reactReduxFirebase, getFirebase } from 'react-redux-firebase';
+import { compose } from 'redux';
+import fbConfig from './config/fbConfig.js';
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+
+const store = createStore(
+  rootReducer,
+  compose(
+    applyMiddleware(thunk.withExtraArgument({ getFirebase, getFirestore })),
+    reduxFirestore(fbConfig),
+    // reactReduxFirebase(firebase, fbConfig),
+  )
+);
 
 ReactDOM.render(
   <React.StrictMode>
