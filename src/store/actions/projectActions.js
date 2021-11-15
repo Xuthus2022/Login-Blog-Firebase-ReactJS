@@ -2,13 +2,14 @@ import app from '../../config/fbConfig.js';
 
 export const createProject = (project) => {
 	return (dispatch, getState, { getFirebase, getFirestore }) => {
-		//make an async call to firebase
+		const profile = getState().firebase.profile
+		const authorID = getState().firebase.auth.uid
 		const db = getFirestore(app).collection("projects")
 			db.add({
 				...project,
-				authorFirstName: 'Jethro',
-				authorLastName: 'Read',
-				authorID: 12345,
+				authorFirstName: profile.firstName,
+				authorLastName: profile.lastName,
+				authorID: authorID,
 				createdAt: new Date(),
 			}).then(() => {
 				dispatch({ type: 'CREATE_PROJECT', project });
