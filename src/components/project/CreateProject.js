@@ -2,7 +2,6 @@ import React from 'react'
 import { useState } from 'react'
 import { createProject } from '../../store/actions/projectActions';
 import { connect } from 'react-redux';
-import useId from '@mui/utils/useId';
 import { Redirect } from 'react-router';
 
 function CreateProject(props) {
